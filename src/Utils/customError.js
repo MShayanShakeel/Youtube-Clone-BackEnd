@@ -19,3 +19,5 @@ class customApiError extends Error {
         }
     }
 }
+
+module.exports = { customApiError }

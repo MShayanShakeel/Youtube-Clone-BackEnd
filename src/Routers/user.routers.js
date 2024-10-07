@@ -7,4 +7,4 @@ router.route('/register').post(registerUser)
 
 
 // export default router;
-module.exports = router; 
+module.exports = router;
