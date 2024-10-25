@@ -21,7 +21,7 @@ const VideosSchema = new mongoose.Schema({
     },
     views: [{
         type: mongoose.Schema.Types.ObjectId,
-        reff: "User"
+        ref: "User"
     }],
     isPublish: {
         type: Boolean,

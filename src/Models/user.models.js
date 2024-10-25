@@ -3,10 +3,10 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt');
 const JWT = require('jsonwebtoken')
 const UserSchema = new mongoose.Schema({
-    UserName: {
+    userName: {
         type: String,
         required: true,
-        lowecase: true,
+        lowercase: true,
         trim: true,
         index: true
     },
@@ -36,7 +36,7 @@ const UserSchema = new mongoose.Schema({
     watchHistory: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            reff: "Video"
+            ref: "Video"
         }
     ],
 
@@ -52,7 +52,7 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.pre("save", async function (next) {
     if (!this.isModified("password")) return next();
-    this.password = bcrypt.hash(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10)
     next();
 })
 
